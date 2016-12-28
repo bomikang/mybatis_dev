@@ -36,8 +36,8 @@
 
 	<mappers>
 		<!-- mapper.xml파일이 있는 경로명.파일이름 -->
-		<!--  
-		<mapper resource="kr/or/dgit/bigdata/mybatis_dev/mapper/StudentMapper.xml" />
-		-->
+		  
+		<!-- <mapper resource="kr/or/dgit/bigdata/mybatis_dev/mappers/StudentMapper.xml" /> -->
+		<package name="kr.or.dgit.bigdata.mybatis_dev.mappers"/>
 	</mappers>
 </configuration>

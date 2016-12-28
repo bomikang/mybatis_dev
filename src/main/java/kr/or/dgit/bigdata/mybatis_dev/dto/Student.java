@@ -7,46 +7,53 @@ public class Student {
 	private String name;
 	private String email;
 	private PhoneNumber phone;
-	private Date Dob;
-	
-	
+	private Date dob;
 	
 	public int getStudId() {
 		return studId;
 	}
+
 	public void setStudId(int studId) {
 		this.studId = studId;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
 	public PhoneNumber getPhone() {
 		return phone;
 	}
+	
 	public void setPhone(PhoneNumber phone) {
 		this.phone = phone;
 	}
-	public Date getDob() {
-		return Dob;
-	}
-	public void setDob(Date dob) {
-		Dob = dob;
-	}
 	
+
 	@Override
 	public String toString() {
-		return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, Dob=%s]", studId, name, email, phone,
-				Dob);
+		return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, dob=%s]", studId, name, email, phone, dob);
+	
 	}
-	
-	
+
 }
