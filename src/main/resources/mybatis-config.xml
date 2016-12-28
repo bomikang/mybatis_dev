@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="application.properties" />
+
+	<settings>
+		<!-- stud_id => studId -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+
+	<typeAliases>
+		<!-- type:패키지명.클래스명 alias:별명 -->
+		<!-- 이렇게 해야 mapper.xml에서 resultType="별명" 이렇게 사용할 수 있음-->
+		<!-- 
+		<typeAlias type="kr.or.dgit.bigdata.school.dto.Student"
+			alias="Student" />
+		 -->	
+		<package name="kr.or.dgit.bigdata.school.dto" />
+	</typeAliases>
+	
+	<typeHandlers>
+		<package name="kr.or.dgit.bigdata.school.typehandler" />
+	</typeHandlers>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!-- mapper.xml파일이 있는 경로명.파일이름 -->
+		 
+		<mapper resource="kr/or/dgit/bigdata/school/mapper/StudentMapper.xml" />
+		
+	</mappers>
+</configuration>
