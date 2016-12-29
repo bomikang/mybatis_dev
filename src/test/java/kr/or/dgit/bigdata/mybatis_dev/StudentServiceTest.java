@@ -123,10 +123,19 @@ public class StudentServiceTest {
 //
 //	}
 	
+//	@Test
+//	public void findAllStudentsForMap(){
+//		List<Map<String, Object>> list = studentService.findAllStudentsForMap();
+//		
+//		Assert.assertNotNull(list);
+//	}
+	
+	
 	@Test
-	public void findAllStudentsForMap(){
-		List<Map<String, Object>> list = studentService.findAllStudentsForMap();
+	public void testSelectStudentWithAddress() {
+		Student student = studentService.selectStudentWithAddress(1);
 		
-		Assert.assertNotNull(list);
+		Assert.assertNotNull(student);
 	}
+	
 }

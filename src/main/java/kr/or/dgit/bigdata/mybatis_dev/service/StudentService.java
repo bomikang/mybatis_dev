@@ -154,4 +154,21 @@ public class StudentService {
 			sqlSession.close();
 		}
 	}
+	
+	//Address조인
+	
+	public Student selectStudentWithAddress(int studId){
+		if (logger.isDebugEnabled()) {
+			logger.debug("selectStudentWithAddress(int) - start");
+		}
+		
+		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+		
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			return studentMapper.selectStudentWithAddress(studId);
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

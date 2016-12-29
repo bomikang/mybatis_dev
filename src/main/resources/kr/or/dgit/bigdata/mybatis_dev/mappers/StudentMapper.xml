@@ -35,4 +35,26 @@
  	<select id="findAllStudentsForMap" resultType="map">
 		select stud_id , name, email, phone, dob from students;
  	</select>
+ 	
+ 	<!-- address 생성 이후 추가되는 태그 -->
+ 	<resultMap id="stdWithAddressRes" type="Student">
+		<id property="studId" column="stud_id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="dob" column="dob" />
+		<result property="address.addrId" column="addr_id" />
+		<result property="address.street" column="street" />
+		<result property="address.city" column="city" />
+		<result property="address.state" column="state" />
+		<result property="address.zip" column="zip" />
+		<result property="address.country" column="country" />
+	</resultMap>
+ 	
+ 	<select id="selectStudentWithAddress" parameterType="int" resultMap="stdWithAddressRes">
+ 		select stud_id, name, email, phone, a.addr_id, street, city, state, zip, country 
+		from students s left outer join addresses a on s.addr_id = a.addr_id 
+		where stud_id = #{studId};
+	</select>
+ 	
 </mapper>

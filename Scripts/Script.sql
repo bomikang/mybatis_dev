@@ -201,3 +201,9 @@ where stud_id = 7;
 delete from students where stud_id=7;
 
 select stud_id as studId, name, email, phone, dob from students;
+
+
+-- 1:1일 때는 inner join이 가능하다
+select stud_id, name, email, phone, a.addr_id, street, city, state, zip, country
+from students s left outer join addresses a on s.addr_id = a.addr_id
+where stud_id = 1;
