@@ -1,6 +1,7 @@
 package kr.or.dgit.bigdata.mybatis_dev.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -121,7 +122,36 @@ public class StudentService {
 		} finally {
 			sqlSession.close();
 		}
+	}
+	
+	
+	public Map<String, Object> findStudentByIdForMap(int studId) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("findStudentByIdForMap(int) - start");
+		}
+
+		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			return studentMapper.findStudentByIdForMap(studId);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	
+	public List<Map<String, Object>> findAllStudentsForMap(){
+		if (logger.isDebugEnabled()) {
+			logger.debug("findAllStudentsForMap() - start");
+		}
 		
+		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
 		
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			return studentMapper.findAllStudentsForMap();
+		} finally {
+			sqlSession.close();
+		}
 	}
 }

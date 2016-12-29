@@ -4,7 +4,7 @@
 <mapper namespace="kr.or.dgit.bigdata.mybatis_dev.mappers.StudentMapper">
 
 	<select id="findStudentById" parameterType="int" resultType="Student">
-		select stud_id, name, email, dob from students where stud_id = #{studId};
+		select stud_id, name, email, phone, dob from students where stud_id = #{studId};
 	</select>
 	
 	<insert id="insertStudent" parameterType="Student">
@@ -27,4 +27,12 @@
 	<select id="findAllStudents" resultType="Student">
 		select stud_id as studId, name, email, phone, dob from students;
 	</select>
+	
+	<select id="findStudentByIdForMap" parameterType="int" resultType="map">
+       select stud_id, name, email, phone, dob from students where stud_id = #{studId};
+ 	</select>
+ 	
+ 	<select id="findAllStudentsForMap" resultType="map">
+		select stud_id , name, email, phone, dob from students;
+ 	</select>
 </mapper>

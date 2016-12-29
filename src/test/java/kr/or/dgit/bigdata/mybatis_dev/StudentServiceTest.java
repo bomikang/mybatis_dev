@@ -1,6 +1,8 @@
 package kr.or.dgit.bigdata.mybatis_dev;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -24,12 +26,12 @@ public class StudentServiceTest {
 		studentService = null;
 	}
 
-	@Test
-	public void testFindStudentById() {
-		Student student = studentService.findStudentById(1);
-		
-		Assert.assertNotNull(student);
-	}
+//	@Test
+//	public void testFindStudentById() {
+//		Student student = studentService.findStudentById(1);
+//		
+//		Assert.assertNotNull(student);
+//	}
 	
 //	@Test
 //	public void testInsertStudent() {
@@ -98,15 +100,33 @@ public class StudentServiceTest {
 //		Assert.assertEquals(1, res);
 //	}
 	
+//	@Test
+//	public void testFindAllStudents(){
+//		List<Student> list = studentService.findAllStudents();
+//		
+//		Assert.assertNotNull(list);
+//		
+//		for (Student s : list) {
+//			System.out.println(s);
+//		}
+//	}
+	
+//	@Test
+//	public void testfindStudentByIdForMap() {
+//		Map<String, Object> stdmap = studentService.findStudentByIdForMap(1);
+//		
+//		Assert.assertNotNull(stdmap);
+//		
+//		for (Entry<String, Object> e : stdmap.entrySet()) {
+//			System.out.printf("%s -> %s%n", e.getKey(), e.getValue());
+//		}
+//
+//	}
+	
 	@Test
-	public void testFindAllStudents(){
-		List<Student> list = studentService.findAllStudents();
+	public void findAllStudentsForMap(){
+		List<Map<String, Object>> list = studentService.findAllStudentsForMap();
 		
 		Assert.assertNotNull(list);
-		
-		for (Student s : list) {
-			System.out.println(s);
-		}
 	}
-	
 }
