@@ -1,14 +1,12 @@
 package kr.or.dgit.bigdata.mybatis_dev;
 
-import java.sql.Timestamp;
-import java.util.Calendar;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import kr.or.dgit.bigdata.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.bigdata.mybatis_dev.dto.Student;
 import kr.or.dgit.bigdata.mybatis_dev.service.StudentService;
 
@@ -33,25 +31,82 @@ public class StudentServiceTest {
 		Assert.assertNotNull(student);
 	}
 	
+//	@Test
+//	public void testInsertStudent() {
+//		Student insStd = new Student();
+//		
+//		insStd.setStudId(4);
+//		insStd.setName("박경아");
+//		insStd.setEmail("pka@naver.com");
+//		insStd.setPhone(new PhoneNumber("010-5555-5555"));
+//		
+//		Calendar cal = Calendar.getInstance();
+//		cal.clear();
+//		cal.set(1980, 0, 1);
+//		
+//		insStd.setDob(cal.getTime());
+//		
+//		int res = studentService.insertStudent(insStd); //성공은 1
+//		
+//		Assert.assertEquals(1, res);
+//	}
+
+//	@Test
+//	public void testInsertStudentAutoInc() {
+//		Student insStd = new Student();
+//		
+//		insStd.setName("박경아222");
+//		insStd.setEmail("pka@naver.com");
+//		insStd.setPhone(new PhoneNumber("010-5555-5555"));
+//		
+//		Calendar cal = Calendar.getInstance();
+//		cal.clear();
+//		cal.set(1980, 0, 1);
+//		
+//		insStd.setDob(cal.getTime());
+//		
+//		int res = studentService.insertStudentAutoInc(insStd); //성공은 1
+//		
+//		Assert.assertEquals(1, res);
+//	}
+	
+//	@Test
+//	public void testUpdateStudent(){
+//		Student upStd = new Student();
+//		
+//		upStd.setName("히히히");
+//		upStd.setEmail("abcc@ablc.co.kr");
+//		upStd.setPhone(new PhoneNumber("011-6586-8848"));
+//		
+//		Calendar cal = Calendar.getInstance();
+//		cal.clear();
+//		cal.set(1995, 2, 8);
+//		
+//		upStd.setDob(cal.getTime());
+//		
+//		upStd.setStudId(7);
+//		
+//		int res = studentService.updateStudent(upStd);
+//		
+//		Assert.assertEquals(1, res);
+//	}
+	
+//	@Test
+//	public void testDeleteStudent(){
+//		int res = studentService.deleteStudent(7);
+//		
+//		Assert.assertEquals(1, res);
+//	}
+	
 	@Test
-	public void testInsertStudent() {
-		Student insStd = new Student();
+	public void testFindAllStudents(){
+		List<Student> list = studentService.findAllStudents();
 		
-		insStd.setStudId(4);
-		insStd.setName("박경아");
-		insStd.setEmail("pka@naver.com");
-		insStd.setPhone(new PhoneNumber("010-5555-5555"));
+		Assert.assertNotNull(list);
 		
-		Calendar cal = Calendar.getInstance();
-		cal.clear();
-		cal.set(1980, 0, 1);
-		
-		insStd.setDob(cal.getTime());
-		
-		int res = studentService.insertStudent(insStd); //성공은 1
-		
-		Assert.assertEquals(1, res);
+		for (Student s : list) {
+			System.out.println(s);
+		}
 	}
-
-
+	
 }

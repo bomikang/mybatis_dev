@@ -193,4 +193,11 @@ select * from course_enrollment;
 select stud_id, name, email, dob from students where stud_id = 1;
 select stud_id, name, email, dob from students where stud_id = 1;
 
-insert into students(stud_id, name, email, phone, dob) values(3, '강보미', 'kbm@test.co.kr', '010-1234-1234', '2016-12-12');
+insert into students(name, email, phone, dob) values('강보미', 'kbm@test.co.kr', '010-1234-1234', '2016-12-12');
+
+update students set name='부부부', email='abc@abc.co.kr', phone='0110-5555-4144', dob='1955-12-12'
+where stud_id = 7;
+
+delete from students where stud_id=7;
+
+select stud_id as studId, name, email, phone, dob from students;
