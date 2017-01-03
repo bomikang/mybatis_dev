@@ -37,6 +37,7 @@
  	</select>
  	
  	<!-- address 생성 이후 추가되는 태그 -->
+ 	<!-- 1회용 -->
  	<resultMap id="stdWithAddressRes" type="Student">
 		<id property="studId" column="stud_id" />
 		<result property="name" column="name" />
@@ -57,4 +58,19 @@
 		where stud_id = #{studId};
 	</select>
  	
+ 	<!-- 추천방법 -->
+ 	<resultMap id="StudentWithAddressResult" type="Student">
+ 		<id property="studId" column="stud_id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="dob" column="dob" />
+		<association property="address" resultMap="kr.or.dgit.bigdata.mybatis_dev.mappers.AddressMapper.AddrRes"></association>
+ 	</resultMap>
+ 	
+ 	<select id="selectStudentWithAddressResult" parameterType="int" resultMap="StudentWithAddressResult">
+ 		select stud_id, name, email, phone, a.addr_id, street, city, state, zip, country 
+		from students s left outer join addresses a on s.addr_id = a.addr_id 
+		where stud_id = #{studId};
+	</select>
 </mapper>

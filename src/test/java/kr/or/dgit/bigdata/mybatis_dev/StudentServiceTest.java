@@ -130,12 +130,17 @@ public class StudentServiceTest {
 //		Assert.assertNotNull(list);
 //	}
 	
+//	@Test
+//	public void testSelectStudentWithAddress() {
+//		Student student = studentService.selectStudentWithAddress(1);
+//		
+//		Assert.assertNotNull(student);
+//	}
 	
 	@Test
-	public void testSelectStudentWithAddress() {
-		Student student = studentService.selectStudentWithAddress(1);
+	public void testSelectStudentWithAddressResult() {
+		Student student = studentService.selectStudentWithAddressResult(1);
 		
 		Assert.assertNotNull(student);
 	}
-	
 }

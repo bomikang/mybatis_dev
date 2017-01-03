@@ -18,5 +18,6 @@ public interface StudentMapper {
 	int deleteStudent(int studId);
 	
 	/////////////Address 조인/////////////
-	Student selectStudentWithAddress(int studId);
+	Student selectStudentWithAddress(int studId); //1회용
+	Student	selectStudentWithAddressResult(int studId);
 }
