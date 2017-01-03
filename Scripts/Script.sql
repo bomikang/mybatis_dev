@@ -214,3 +214,15 @@ select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description
 from tutors t left outer join addresses a on t.addr_id = a.addr_id
 				left outer join courses c on t.tutor_id = c.tutor_id
 where t.tutor_id = 1;
+
+
+select * from courses where tutor_id = 1 and name like '%java%';
+select * from courses where tutor_id = 1 and start_date >= '2013-03-01';
+select * from courses where tutor_id = 1 and start_date >= '2013-03-01' and end_date <='2013-07-01' ;
+select * from courses where tutor_id = 1 and start_date >= '2013-03-01' and name like '%java%';
+
+select * from courses where tutor_id = 1;
+-- or
+select * from courses where name like '%java%';
+-- or
+select * from courses where end_date >= now();
