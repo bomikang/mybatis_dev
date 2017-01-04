@@ -1,6 +1,6 @@
 package kr.or.dgit.bigdata.mybatis_dev;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -91,4 +91,47 @@ public class CourseServiceTest {
 		}
 	}
 
+	/*
+	@Test
+	public void testSearchWhereCourses(){
+		Map<String, Object> map = new HashMap<>();
+		map.put("tutorId", 1);
+		map.put("courseName", "%java%");
+		
+		map.clear(); //싹 다 지우기인가
+		
+		GregorianCalendar cal = new GregorianCalendar(2015, 1, 1);
+		
+		map.put("endDate", cal.getTime());
+		
+		List<Course> courses = courseService.searchWhereCourses(map);
+		
+		Assert.assertNotNull(courses);
+	}
+	
+	@Test
+	public void testSearchTrimCourses(){
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("tutorId", 1);
+		map.put("courseName", "%java%");
+		
+		List<Course> courses = courseService.searchTrimCourses(map);
+		
+		Assert.assertNotNull(courses);
+	}
+	*/
+	@Test
+	public void testSearchForeachCourseByTutors(){
+		List<Integer> tutorIds = new ArrayList<>();
+		tutorIds.add(1);
+		tutorIds.add(2);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("tutorIds", tutorIds);
+		
+		List<Course> courses = courseService.searchForeachCourseByTutors(map);
+		
+		Assert.assertNotNull(courses);
+	}
 }

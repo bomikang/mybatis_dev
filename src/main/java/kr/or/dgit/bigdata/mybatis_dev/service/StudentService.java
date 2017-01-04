@@ -186,4 +186,21 @@ public class StudentService {
 			sqlSession.close();
 		}
 	}
+	
+	public int updateSetStudent(Student student){
+		if (logger.isDebugEnabled()) {
+			logger.debug("updateSetStudent(Student) - start");
+		}
+		
+		SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+		
+		try {
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.updateSetStudent(student);
+			sqlSession.commit();
+			return res;
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

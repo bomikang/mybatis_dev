@@ -1,14 +1,13 @@
 package kr.or.dgit.bigdata.mybatis_dev;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Date;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.or.dgit.bigdata.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.bigdata.mybatis_dev.dto.Student;
 import kr.or.dgit.bigdata.mybatis_dev.service.StudentService;
 
@@ -142,5 +141,18 @@ public class StudentServiceTest {
 		Student student = studentService.selectStudentWithAddressResult(1);
 		
 		Assert.assertNotNull(student);
+	}
+	
+	@Test
+	public void testUpdateSetStudent(){
+		Student student = new Student();
+		student.setStudId(6);
+		student.setEmail("test@test.co.kr");
+		student.setPhone(new PhoneNumber("010-2772-7827"));
+		student.setDob(new Date());
+		
+		int res = studentService.updateSetStudent(student);
+		
+		Assert.assertSame(1, res);
 	}
 }

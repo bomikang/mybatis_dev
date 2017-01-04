@@ -20,4 +20,7 @@ public interface StudentMapper {
 	/////////////Address 조인/////////////
 	Student selectStudentWithAddress(int studId); //1회용
 	Student	selectStudentWithAddressResult(int studId);
+	
+	//동적SQL
+	int updateSetStudent(Student student);
 }

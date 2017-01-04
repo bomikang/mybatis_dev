@@ -226,3 +226,7 @@ select * from courses where tutor_id = 1;
 select * from courses where name like '%java%';
 -- or
 select * from courses where end_date >= now();
+
+select * from courses where end_date <= '2014-05-05';
+
+select * from students;
